@@ -11,7 +11,8 @@ gem 'rails', '~> 4.2'
 gem 'thin'
 
 # Databases
-gem 'pg'
+# gem 'pg'
+gem 'mysql2'
 gem 'redis'
 gem 'redis-objects'
 

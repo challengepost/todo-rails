@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TodoRails::Application.config.secret_key_base = 'b4d1626dfffbc82d7f982e7083984c4eec66e1bd9a14f2eb4ee97282dd16d7a0d5261e1d9bf26c27cca8b4b9e6ac20fccc55f61e006adc2ecf56dedeb7e7a0b9'
+TodoRails::Application.config.secret_key_base = 'b939570e70d7e59d4270165ae0f2e2433fa8eaaa145f1576ddbd2e85e92952f36b9846762897b5fd4a550718cf1ba90c1a02da8d3b411301a92dec00b98021b1'
