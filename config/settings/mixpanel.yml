@@ -1,0 +1,29 @@
+test:
+  api_key: 'testing'
+  enabled: false
+  debug: false
+
+# Enable in development.local.rb to send events to
+# send events to the development project in mixpanel
+development: &development
+  api_key: '3b2796f70555eccef4053f3048f1ec50'
+  debug: true
+  enabled: false
+
+profile:
+  <<: *development
+
+staging: &staging
+  api_key: 'f0f3b6adaf6919bee2b8b638bc7db39b'
+  debug: true
+  enabled: true
+
+princess:
+  api_key: '2ccea32b28ca3f90d6f60ded9e491ad1'
+  debug: true
+  enabled: true
+
+production:
+  api_key: '1c828346e9fae00dbc3a117657f65895'
+  debug: false
+  enabled: true

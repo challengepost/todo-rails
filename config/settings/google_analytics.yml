@@ -1,0 +1,23 @@
+disabled: &disabled
+  ua_code: UA-global
+
+default: &default
+  ua_code: UA-2233558-21
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+princess:
+  <<: *default
+
+test:
+  <<: *disabled
+
+profile:
+  <<: *default
+
+production:
+  <<: *default

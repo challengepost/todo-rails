@@ -1,0 +1,15 @@
+<script type="text/javascript" charset="utf-8">
+  var _gaq = _gaq || [];
+var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['cp._setDomainName', 'localhost:5000'],
+            ['cp._setAccount', '<%= Figleaf::Settings.google_analytics.ua_code %>'],
+            ['cp._setAllowLinker', true],
+            ['cp._require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['cp._trackPageview'],
+            ['cp._require', 'inpage_linkid', pluginUrl]);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>

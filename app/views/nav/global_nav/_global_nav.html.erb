@@ -1,0 +1,19 @@
+<header id="global-nav">
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-options="is_hover:false" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <div id="logo">
+            <%= link_to "http://#{Figleaf::Settings.domain.root}" do %>
+              <%= responsive_image_tag "layout/ChallengePost_logo.png", alt: "ChallengePost" %>
+            <% end %>
+          </div>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+      </section>
+    </nav>
+  </div>
+</header>

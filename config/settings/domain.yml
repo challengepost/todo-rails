@@ -1,0 +1,66 @@
+development: &LOCAL
+  root: platform.dev
+  secure: secure.platform.dev
+  manage: manage.platform.dev
+  gov: challengegov.dev
+  email: challengepost.com
+  api: api.platform.dev
+  editor: editor.platform.dev
+  post: post.platform.dev
+  clients:
+  - editor.platform.dev
+  - editor.dummy.dev
+  - platform.dev
+
+test:
+  <<: *LOCAL
+
+profile:
+  <<: *LOCAL
+
+staging:
+  root: staging.challengepost.com
+  secure: secure.staging.challengepost.com
+  manage: manage.staging.challengepost.com
+  gov: staging.challenge.gov
+  email: challengepost.com
+  api: stagingapi.challengepost.com
+  editor: editor.staging.challengepost.com
+  post: post.staging.challengepost.com
+  clients:
+  - editor.staging.challengepost.com
+  - editor.starship.challengepost.com
+  - editor.staging.challengepost.com.s3-website-us-east-1.amazonaws.com
+  - editor.platform.dev
+  - editor.dummy.dev
+  - staging.challengepost.com
+
+princess:
+  root: princess.challengepost.com
+  secure: secure.princess.challengepost.com
+  manage: manage.princess.challengepost.com
+  gov: princess.challenge.gov
+  email: challengepost.com
+  api: princessapi.challengepost.com
+  editor: editor.princess.challengepost.com
+  post: post.staging.challengepost.com
+  clients:
+  - editor.platform.dev
+  - editor.dummy.dev
+  - princess.challengepost.com
+
+production:
+  root: challengepost.com
+  secure: secure.challengepost.com
+  manage: manage.challengepost.com
+  gov: challenge.gov
+  email: challengepost.com
+  api: api.challengepost.com
+  editor: editor.challengepost.com
+  post: post.challengepost.com
+  clients:
+  - editor.challengepost.com
+  - editor.challengepost.com.s3-website-us-east-1.amazonaws.com
+  - editor.platform.dev
+  - editor.dummy.dev
+  - challengepost.com

@@ -1,0 +1,31 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: rails_template_development
+  pool: 5
+  username:
+  password:
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: rails_template_development
+  pool: 5
+  username:
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: rails_template_test
+  pool: 5
+  username:
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: rails_template_production
+  pool: 5
+  username:
+  password:

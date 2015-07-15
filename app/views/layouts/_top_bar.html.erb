@@ -1,0 +1,31 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="#">Top Bar Title </a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if user_signed_in? %>
+        <li>
+          <a href="#">Hello <%= current_user.email %></a>
+        </li>
+        <li>
+          <%= link_to 'log out', destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class="has-form">
+          <%= link_to 'Log in', new_user_session_path, class: 'button' %>
+        </li>
+        <li>
+          <%= link_to 'or sign up', new_user_registration_path %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</nav>

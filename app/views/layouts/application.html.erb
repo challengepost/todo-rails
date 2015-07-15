@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js" xmlns:fb="http://ogp.me/ns/fb#" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/"> <!--<![endif]-->
+  <head prefix="og: http://ogp.me/ns#">
+    <%= favicon_link_tag 'reimagine2/favicon.ico' %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Todo Rails</title>
+
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+
+    <%#
+      IE7 and old get 0 styles.
+    #%>
+
+    <!--[if gt IE 7]><!-->
+      <%= stylesheet_link_tag 'reimagine2' %>
+      <%= stylesheet_link_tag 'application' %>
+    <!--<![endif]-->
+
+    <%#
+      For now we only use modernizr to add html5 shim to the page (for IE)
+      If needed, move modernizr to the block above
+    #%>
+
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag 'vendor/custom.modernizr' %>
+    <![endif]-->
+  </head>
+
+  <%= content_tag :body, { id: "body-#{controller_name}", class: 'foundation-grid' } do %>
+    <%= render "nav/global_nav/global_nav" %>
+
+    <div id="container">
+      <%= render "layouts/header" %>
+
+      <div class="content-section row">
+        <div class="large-12 columns">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <%= render 'reimagine2/challengepost/footer' %>
+    <%= javascript_include_tag "application" %>
+    <%= render "layouts/tracking/google" %>
+  <% end %>
+</html>
