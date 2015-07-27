@@ -5,10 +5,10 @@ ruby '2.1.6'
 gem 'rails', '~> 4.2'
 
 # Web
-# gem 'unicorn'
+gem 'unicorn'
 # gem 'puma'
 # gem 'rails_12factor' # required for heroku applications
-gem 'thin'
+# gem 'thin'
 
 gem 'sqlite3'
 
