@@ -51,6 +51,7 @@ gem 'mixpanel'
 
 # Models
 gem 'email_validator'
+gem 'ancestry'
 
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
