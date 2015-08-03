@@ -11,7 +11,7 @@ gem 'rails', '~> 4.2'
 gem 'thin'
 
 # Databases
-gem 'pg'
+gem 'sqlite3'
 gem 'redis'
 gem 'redis-objects'
 
@@ -62,6 +62,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'steak'
   gem 'timecop'
+  gem 'capybara-rails'
 
   gem 'pry'
   gem 'pry-byebug'
