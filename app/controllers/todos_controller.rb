@@ -21,7 +21,16 @@ class TodosController < ApplicationController
 
   # POST /todos
   def create
-    @todo = Todo.new(todo_params)
+
+    uploaded = todo_params.fetch(:image, nil)
+
+    if uploaded.present?
+      File.open(Rails.root.join("public", "upload", uploaded.original_filename), 'wb') do |file|
+        file.write(uploaded.read)
+      end
+    end
+
+    @todo = Todo.new({title: todo_params[:title], image_path: "upload/" + uploaded.original_filename})
 
     if @todo.save
       redirect_to @todo, notice: 'Todo was successfully created.'
@@ -54,6 +63,6 @@ class TodosController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo).permit(:title, :image)
   end
 end
