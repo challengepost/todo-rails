@@ -1,5 +1,9 @@
 <%= simple_form_for @todo do |f| %>
     <%= f.input :title %>
 
+    <%= f.fields_for :thumbnail do |t| %>
+      <%= t.input :image_name %>
+      <%= t.input :path %>
+    <% end %>
     <%= f.submit %>
 <% end %>

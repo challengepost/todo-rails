@@ -13,6 +13,7 @@ class TodosController < ApplicationController
   # GET /todos/new
   def new
     @todo = Todo.new
+    @todo.build_thumbnail
   end
 
   # GET /todos/1/edit
@@ -54,6 +55,6 @@ class TodosController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo).permit(:title, :thumbnail_attributes => [:image_name, :path])
   end
 end
