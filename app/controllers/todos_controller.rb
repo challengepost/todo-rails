@@ -23,16 +23,14 @@ class TodosController < ApplicationController
   def create
 
     uploaded = todo_params.fetch(:image, nil)
-    image_path = Rails.root.join("public", "upload", uploaded.original_filename)
 
     if uploaded.present?
-
-      File.open(Rails.root.join("public", "upload", uploaded.original_filename), 'wb') do |file|  
+      File.open(Rails.root.join("public", "upload", uploaded.original_filename), 'wb') do |file|
         file.write(uploaded.read)
       end
     end
 
-    @todo = Todo.new({title: todo_params[:title], image_path: image_path})
+    @todo = Todo.new({title: todo_params[:title], image_path: "upload/" + uploaded.original_filename})
 
     if @todo.save
       redirect_to @todo, notice: 'Todo was successfully created.'
