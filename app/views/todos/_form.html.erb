@@ -1,5 +1,7 @@
 <%= simple_form_for @todo do |f| %>
-    <%= f.input :name %>
+
+    <%= f.input :title %>
+    <%= f.input :img, as: :file %>
 
     <%= f.submit %>
 <% end %>

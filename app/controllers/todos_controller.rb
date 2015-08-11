@@ -32,7 +32,10 @@ class TodosController < ApplicationController
 
   # PATCH/PUT /todos/1
   def update
-    if @todo.update(todo_params)
+    file_name = todo_params[:img].original_filename
+    FileUtils.mv todo_params[:img].tempfile, Rails.root.join("public/#{file_name}")
+
+    if @todo.update(title: todo_params[:title],img: file_name)
       redirect_to @todo, notice: 'Todo was successfully updated.'
     else
       render action: 'edit'
@@ -54,6 +57,6 @@ class TodosController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo).permit(:title, :img)
   end
 end
