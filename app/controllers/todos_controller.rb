@@ -32,9 +32,10 @@ class TodosController < ApplicationController
 
   # PATCH/PUT /todos/1
   def update
-    file_name = todo_params[:img].original_file_name
-    FileUtils.mv todo_params[:img].tempfile, "/cptodo/public/#{file_name}"
-    if @todo.update(todo_params)
+    file_name = todo_params[:img].original_filename
+    FileUtils.mv todo_params[:img].tempfile, Rails.root.join("public/#{file_name}")
+
+    if @todo.update(title: todo_params[:title],img: file_name)
       redirect_to @todo, notice: 'Todo was successfully updated.'
     else
       render action: 'edit'
