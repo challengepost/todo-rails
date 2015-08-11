@@ -32,6 +32,8 @@ class TodosController < ApplicationController
 
   # PATCH/PUT /todos/1
   def update
+    file_name = todo_params[:img].original_file_name
+    FileUtils.mv todo_params[:img].tempfile, "/cptodo/public/#{file_name}"
     if @todo.update(todo_params)
       redirect_to @todo, notice: 'Todo was successfully updated.'
     else
@@ -54,6 +56,6 @@ class TodosController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo).permit(:title, :img)
   end
 end
