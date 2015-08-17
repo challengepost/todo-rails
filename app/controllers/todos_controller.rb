@@ -24,13 +24,12 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
 
     file_name = todo_params[:photo_url].original_filename
-    directory = "public/images/upload"
     file = todo_params[:photo_url].read
-    path = File.join(directory, file_name) 
+    path = File.join("public", "images", "upload", file_name)
 
     File.open(path, "wb") { |f| f.write(file)}
 
-    @todo.photo_url = path
+    @todo.photo_url = File.join("upload", file_name)
 
 
     if @todo.save
