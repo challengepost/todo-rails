@@ -23,6 +23,16 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
 
+    file_name = todo_params[:photo_url].original_filename
+    directory = "public/images/upload"
+    file = todo_params[:photo_url].read
+    path = File.join(directory, file_name) 
+
+    File.open(path, "wb") { |f| f.write(file)}
+
+    @todo.photo_url = path
+
+
     if @todo.save
       redirect_to @todo, notice: 'Todo was successfully created.'
     else
@@ -54,6 +64,7 @@ class TodosController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo).permit(:title, :photo_url)
   end
 end
+

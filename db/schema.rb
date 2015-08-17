@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714225535) do
+ActiveRecord::Schema.define(version: 20150817182117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "todos", force: :cascade do |t|
     t.string "title"
+    t.string "photo_url"
   end
 
   create_table "users", force: :cascade do |t|
