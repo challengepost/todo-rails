@@ -59,6 +59,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'steak'
   gem 'timecop'
+  gem 'capybara-rails'
 
   gem 'pry'
   gem 'pry-byebug'
