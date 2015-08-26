@@ -7,12 +7,20 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @todos.each do |todo| %>
       <tr>
+        <td>
+          <%= simple_form_for todo do |f| %>
+            <%= f.check_box :complete, { id: "complete_#{todo.id}" }, "true", "false" %>
+            <%= 'Complete' if todo.complete %><br>
+            <%= f.submit %>
+          <% end %>
+        </td>
         <td><%= todo.title %></td>
         <td><%= link_to 'Show', todo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
