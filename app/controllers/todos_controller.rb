@@ -21,8 +21,8 @@ class TodosController < ApplicationController
 
   # POST /todos
   def create
-    save_image(todo_params)
     @todo = Todo.new(todo_params)
+    @todo.img = params[:todo][:img_blob] if params[:todo][:img_blob]
 
     if @todo.save
       redirect_to @todo, notice: 'Todo was successfully created.'
@@ -34,11 +34,7 @@ class TodosController < ApplicationController
   # PATCH/PUT /todos/1
   def update
     # save_image(todo_params)
-    if (todo_params[:img_blob])
-      img_path = Todo.save_img_blob(todo_params[:img_blob])
-      params[:img_path] = img_path
-      params.delete(:img_blob)
-    end
+    @todo.img = params[:todo][:img_blob] if params[:todo][:img_blob]
 
     if @todo.update(todo_params)
       redirect_to @todo, notice: 'Todo was successfully updated.'
@@ -62,14 +58,7 @@ class TodosController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def todo_params
-    params.require(:todo).permit(:title)
+    params.require(:todo).permit(:title, :img_path)
   end
 
-  def save_image(todo_params)
-    if (todo_params[:img_blob])
-      img_path = Todo.save_img_blob(todo_params[:img_blob])
-      params[:img_path] = img_path
-      params.delete(:img_blob)
-    end
-  end
 end
