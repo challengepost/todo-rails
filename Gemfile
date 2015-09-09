@@ -10,7 +10,7 @@ gem 'rails', '~> 4.2'
 # gem 'rails_12factor' # required for heroku applications
 gem 'thin'
 
-gem 'sqlite3'
+gem 'mysql2'
 
 # Assets
 gem "reimagine2", git: "git@github.com:challengepost/reimagine.git", branch: "master"
